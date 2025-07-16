@@ -28,11 +28,18 @@ import { ArticleComments } from './article-comments/article-comments';
 
       @defer {
         <article-comments />
-      } @placeholder (minimum 5s) {
+      
+      } @placeholder (minimum 1s) {
         <p><b>This is Placeholder for a-deffer</b></p>
         <p>By default, defer blocks do not render any content before they are triggered. The a-placeholder is an optional block that declares content to show before the deferred content loads. Angular replaces the placeholder with the deferred content after loading completes. While this block is optional, the Angular team recommends always including a placeholder.</p>
         <p>The a-placeholder block accepts an optional parameter to specify the minimum amount of time that this placeholder should be shown. This minimum parameter is specified in time increments of milliseconds (ms) or seconds (s). This parameter exists to prevent fast flickering of placeholder content in the case that the deferred dependencies are fetched quickly.</p>
-        <p>Comments loading...</p>
+        <p>Placeholder for comments.</p>
+     
+      } @loading (minimum 2s; after 500ms) {
+        <p>Loading comments...</p>
+      
+      } @error {
+        <p>Failed to load comments</p>
       }
     </div>
   `,
